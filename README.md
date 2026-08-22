@@ -1,3 +1,15 @@
+Project name = Evaluation
+Team Member name= Leader Saish Bhadange
+                  Member2= Siddhant Kulkarni
+                  Member3= Siddhi Jagtap
+                  Member4 Samiksha Kadam
+                  Member5= Aditi Narode
+
+
+
+
+
+
 # Evaluation
 AI Research & Competitor Intelligence Agent
 
