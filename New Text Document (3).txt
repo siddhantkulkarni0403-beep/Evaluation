@@ -1,0 +1,45 @@
+function evaluateAgent(result) {
+  const metrics = {
+    accuracy: result.accuracy,
+    taskCompletion: result.taskCompletion,
+    groundedness: result.groundedness,
+    reliability: result.reliability,
+    recovery: result.recovery,
+    consistency: result.consistency,
+    evidenceQuality: result.evidenceQuality
+  };
+
+  const overallScore =
+    Object.values(metrics).reduce((sum, value) => sum + value, 0)
+    / Object.values(metrics).length;
+
+  const hallucinationRate = 100 - metrics.groundedness;
+
+  return {
+    ...metrics,
+    hallucinationRate,
+    overallScore: Math.round(overallScore)
+  };
+}
+
+// Example agent evaluation
+const result = evaluateAgent({
+  accuracy: 90,
+  taskCompletion: 100,
+  groundedness: 95,
+  reliability: 88,
+  recovery: 92,
+  consistency: 85,
+  evidenceQuality: 94
+});
+
+console.log("=== AGENT EVALUATION ===");
+console.log("Accuracy:", result.accuracy + "%");
+console.log("Task Completion:", result.taskCompletion + "%");
+console.log("Groundedness:", result.groundedness + "%");
+console.log("Hallucination Rate:", result.hallucinationRate + "%");
+console.log("Reliability:", result.reliability + "%");
+console.log("Recovery Rate:", result.recovery + "%");
+console.log("Consistency:", result.consistency + "%");
+console.log("Evidence Quality:", result.evidenceQuality + "%");
+console.log("Overall Score:", result.overallScore + "/100");
